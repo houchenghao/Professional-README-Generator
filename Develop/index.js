@@ -1,12 +1,48 @@
 // TODO: Include packages needed for this application
-
+const inquirer = require('inquirer');
+const fs = require('fs')
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+    {
+        type:'input',
+        message:'Enter the project title',
+        name:'project-title'
+    },
+    {
+        type:'input',
+        message:'Enter the installation instructions',
+        name:'installation-instructions'
+    },
+    {
+        type:'input',
+        message:'Enter the usage information',
+        name:'usage-information'
+    },
+    {
+        type:'input',
+        message:'Enter the contribution guidelines',
+        name:'contribution-guidelines'
+    },
+    {
+        type:'input',
+        message:'Enter the test instructions',
+        name:'test-instructions'
+    },
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+    fs.write(fileName,data, (err)=>
+        err ? console.log(err) : console.log('Successfully created README.md'))
 
-    const readme = `
+    
+}
+
+// TODO: Create a function to initialize app
+function init() {
+
+    
+    const readmeContent = `
     # <Your-Project-Title>
 
     ## Description
@@ -72,11 +108,27 @@ function writeToFile(fileName, data) {
     If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
     
     ## Tests
-    `
-}
 
-// TODO: Create a function to initialize app
-function init() {}
+
+    list of license
+    "Apache License 2.0
+    GNU General Public License v3.0
+    MIT License
+    BSD 2-Clause "Simplified" License
+    BSD 3-Clause "New" or "Revised" License
+    Boost Software License 1.0
+    Creative Commons Zero v1.0 Universal
+    Eclipse Public License 2.0
+    GNU Affero General Public License v3.0
+    GNU General Public License v2.0
+    GNU Lesser General Public License v2.1
+    Mozilla Public License 2.0
+    The Unlicense
+    `
+
+
+
+}
 
 // Function call to initialize app
 init();
