@@ -1,134 +1,147 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const fs = require('fs')
+const fs = require('fs');
+
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type:'input',
         message:'Enter the project title',
-        name:'project-title'
+        name:'projectTitle'
+    },
+    {
+        type:'input',
+        message:'Enter the description',
+        name:'description'
     },
     {
         type:'input',
         message:'Enter the installation instructions',
-        name:'installation-instructions'
+        name:'installationInstructions'
     },
     {
         type:'input',
         message:'Enter the usage information',
-        name:'usage-information'
+        name:'usageInformation'
     },
     {
         type:'input',
         message:'Enter the contribution guidelines',
-        name:'contribution-guidelines'
+        name:'contributionGuidelines'
     },
     {
         type:'input',
         message:'Enter the test instructions',
-        name:'test-instructions'
+        name:'testInstructions'
+    },
+    {
+        type:'rawlist',
+        message:'choose one licesen',
+        name:'license',
+        choices:['Apache License 2.0',
+            'GNU General Public License v3.0',
+            'MIT License',
+            'BSD 2-Clause "Simplified" License',
+            'BSD 3-Clause "New" or "Revised" License',
+            'Boost Software License 1.0',
+            'Creative Commons Zero v1.0 Universal',
+            'Eclipse Public License 2.0',
+            'GNU Affero General Public License v3.0',
+            'GNU General Public License v2.0',
+            'GNU Lesser General Public License v2.1',
+            'Mozilla Public License 2.0',
+            'The Unlicense']
+    },
+    {
+        type:'input',
+        message:'Enter username',
+        name:'username'
+    },
+    {
+        type:'input',
+        message:'Enter email',
+        name:'email'
     },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.write(fileName,data, (err)=>
-        err ? console.log(err) : console.log('Successfully created README.md'))
+function writeToFile(fileName, {projectTitle,description,installationInstructions,usageInformation,contributionGuidelines,testInstructions,license,username,email}) {
+    console.log(projectTitle);
+
+    var readmeContent = 
+    `
+# ${projectTitle}
+## Description
+
+${description}
+    
+## Table of Contents
+    
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [License](#license)
+- [Contributing](#Contributing)
+- [Tests](#Tests)
+- [Questions](#Questions)
 
     
-}
+## Installation 
+    
+${installationInstructions};
+    
+## Usage
+    
+${usageInformation}
+     
+## License
 
-// TODO: Create a function to initialize app
-function init() {
-
+${license}
     
-    const readmeContent = `
-    # <Your-Project-Title>
-
-    ## Description
-    
-    Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-    
-    - What was your motivation?
-    - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-    - What problem does it solve?
-    - What did you learn?
-    
-    ## Table of Contents (Optional)
-    
-    If your README is long, add a table of contents to make it easy for users to find what they need.
-    
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
-    
-    ## Installation 
-    
-    What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-    
-    ## Usage
-    
-    Provide instructions and examples for use. Include screenshots as needed.
-    
-    To add a screenshot, create an \`assets/images\` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    
-        \`\`\`md
-        ![alt text](assets/images/screenshot.png)
-        \`\`\`
-    
-    ## Credits
-    
-    List your collaborators, if any, with links to their GitHub profiles.
-    
-    If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-    
-    If you followed tutorials, include links to those here as well.
-    
-    ## License
-    
-    The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-    
-    ---
-    
-    🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-    
-    ## Badges
+## Badges
     
     ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
     
     Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
     
-    ## Features
+## Contributing
     
-    If your project has a lot of features, list them here.
+${contributionGuidelines}
     
-    ## How to Contribute
+## Tests
     
-    If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-    
-    ## Tests
+${testInstructions}
+
+## Questions
+
+${username}
+${email}
+
+`
 
 
-    list of license
-    "Apache License 2.0
-    GNU General Public License v3.0
-    MIT License
-    BSD 2-Clause "Simplified" License
-    BSD 3-Clause "New" or "Revised" License
-    Boost Software License 1.0
-    Creative Commons Zero v1.0 Universal
-    Eclipse Public License 2.0
-    GNU Affero General Public License v3.0
-    GNU General Public License v2.0
-    GNU Lesser General Public License v2.1
-    Mozilla Public License 2.0
-    The Unlicense
-    `
+    console.log(readmeContent);
+    
+    fs.writeFile(fileName,readmeContent, (err)=>
+        err ? console.log(err) : console.log('Successfully created README.md'))
+    
+}
 
-
+// TODO: Create a function to initialize app
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((answer)=>{
+            writeToFile('README.md',answer)
+        })
 
 }
 
 // Function call to initialize app
 init();
+
+
+
+
+
+
+
