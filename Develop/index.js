@@ -66,11 +66,14 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, {projectTitle,description,installationInstructions,usageInformation,contributionGuidelines,testInstructions,license,username,email}) {
-    console.log(projectTitle);
+    //console.log(projectTitle);
+    licensebadge = license.replace(/ /g, "");
+    
+    console.log(licensebadge);
 
     var readmeContent = 
     `
-# ${projectTitle}
+# ${projectTitle}   ![badmath](https://img.shields.io/badge/license-${licensebadge}-success)
 ## Description
 
 ${description}
@@ -97,12 +100,6 @@ ${usageInformation}
 
 ${license}
     
-## Badges
-    
-    ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-    
-    Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-    
 ## Contributing
     
 ${contributionGuidelines}
@@ -119,7 +116,7 @@ ${email}
 `
 
 
-    console.log(readmeContent);
+    //console.log(readmeContent);
     
     fs.writeFile(fileName,readmeContent, (err)=>
         err ? console.log(err) : console.log('Successfully created README.md'))
