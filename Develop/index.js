@@ -80,12 +80,12 @@ ${description}
     
 ## Table of Contents
     
-- [Installation](#Installation)
-- [Usage](#Usage)
+- [Installation](#installation)
+- [Usage](#usage)
 - [License](#license)
-- [Contributing](#Contributing)
+- [Contributing](#contributing)
 - [Tests](#Tests)
-- [Questions](#Questions)
+- [Questions](#questions)
 
     
 ## Installation 
