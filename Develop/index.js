@@ -64,13 +64,11 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
+// Create a function to write README file
 function writeToFile(fileName, {projectTitle,description,installationInstructions,usageInformation,contributionGuidelines,testInstructions,license,username,email}) {
-    //console.log(projectTitle);
+    //remove space in the licence for the badge
     licensebadge = license.replace(/ /g, "");
-    
-    console.log(licensebadge);
-
+// readme content
     var readmeContent = 
     `
 ![badmath](https://img.shields.io/badge/license-${licensebadge}-success)
@@ -80,7 +78,7 @@ function writeToFile(fileName, {projectTitle,description,installationInstruction
 ${description}
     
 ## Table of Contents
-    
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
@@ -115,13 +113,13 @@ ${username}
 
 ${email}
 `
-    
+ //write file   
     fs.writeFile(fileName,readmeContent, (err)=>
         err ? console.log(err) : console.log('Successfully created README.md'))
     
 }
 
-// TODO: Create a function to initialize app
+// Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)

@@ -1,9 +1,9 @@
 
-![badmath](https://img.shields.io/badge/license-MITLicense-success)
-# Professional Readme Generator   
+![badmath](https://img.shields.io/badge/license-BoostSoftwareLicense1.0-success)
+#    
 ## Description
 
-When creating an open source project on Github, it's important to hava high-quality README for the app. This should include what the app is for, how to use the app,how to make contribution— this last part increases the likelihood that other develop will contribute to the success of the project.
+
     
 ## Table of Contents
     
@@ -17,26 +17,26 @@ When creating an open source project on Github, it's important to hava high-qual
     
 ## Installation 
     
-This app requires inquirer 8.2.4.;
+hgjg
     
 ## Usage
     
-Run "node index.js" enter the the description for each promte a readme file will be created.
+
      
 ## License
 
-MIT License
+Boost Software License 1.0
     
 ## Contributing
     
-Chenghao
+
     
 ## Tests
 ```md    
-node index.js
+
 ```
 ## Questions
 
-Chenghao
 
-houchenghao@hotmail.com
+
+
