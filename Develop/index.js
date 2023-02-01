@@ -73,7 +73,8 @@ function writeToFile(fileName, {projectTitle,description,installationInstruction
 
     var readmeContent = 
     `
-# ${projectTitle}   ![badmath](https://img.shields.io/badge/license-${licensebadge}-success)
+![badmath](https://img.shields.io/badge/license-${licensebadge}-success)
+# ${projectTitle}   
 ## Description
 
 ${description}
@@ -90,7 +91,7 @@ ${description}
     
 ## Installation 
     
-${installationInstructions};
+${installationInstructions}
     
 ## Usage
     
@@ -105,12 +106,13 @@ ${license}
 ${contributionGuidelines}
     
 ## Tests
-    
+\`\`\`md    
 ${testInstructions}
-
+\`\`\`
 ## Questions
 
 ${username}
+
 ${email}
 `
     
