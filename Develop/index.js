@@ -1,13 +1,14 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type:'input',
         message:'Enter the project title',
-        name:'projectTitle'
+        name:'title'
     },
     {
         type:'input',
@@ -45,10 +46,10 @@ const questions = [
             'BSD 3-Clause "New" or "Revised" License',
             'Boost Software License 1.0',
             'Creative Commons Zero v1.0 Universal',
-            'Eclipse Public License 2.0',
+            'Eclipse Public License 1.0',
             'GNU Affero General Public License v3.0',
             'GNU General Public License v2.0',
-            'GNU Lesser General Public License v2.1',
+            'GNU Lesser General Public License v3',
             'Mozilla Public License 2.0',
             'The Unlicense']
     },
@@ -65,56 +66,9 @@ const questions = [
 ];
 
 // Create a function to write README file
-function writeToFile(fileName, {projectTitle,description,installationInstructions,usageInformation,contributionGuidelines,testInstructions,license,username,email}) {
-    //remove space in the licence for the badge
-    licensebadge = license.replace(/ /g, "");
-// readme content
-    var readmeContent = 
-    `
-![badmath](https://img.shields.io/badge/license-${licensebadge}-success)
-# ${projectTitle}   
-## Description
-
-${description}
-    
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#Tests)
-- [Questions](#questions)
-
-    
-## Installation 
-    
-${installationInstructions}
-    
-## Usage
-    
-${usageInformation}
-     
-## License
-
-${license}
-    
-## Contributing
-    
-${contributionGuidelines}
-    
-## Tests
-\`\`\`md    
-${testInstructions}
-\`\`\`
-## Questions
-
-${username}
-
-${email}
-`
+function writeToFile(fileName, answer) {
  //write file   
-    fs.writeFile(fileName,readmeContent, (err)=>
+    fs.writeFile(fileName,generateMarkdown(answer), (err)=>
         err ? console.log(err) : console.log('Successfully created README.md'))
     
 }
@@ -122,11 +76,10 @@ ${email}
 // Create a function to initialize app
 function init() {
     inquirer
-        .prompt(questions)
+    .prompt(questions)
         .then((answer)=>{
             writeToFile('README.md',answer)
         })
-
 }
 
 // Function call to initialize app
