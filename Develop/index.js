@@ -112,11 +112,7 @@ ${testInstructions}
 
 ${username}
 ${email}
-
 `
-
-
-    //console.log(readmeContent);
     
     fs.writeFile(fileName,readmeContent, (err)=>
         err ? console.log(err) : console.log('Successfully created README.md'))
