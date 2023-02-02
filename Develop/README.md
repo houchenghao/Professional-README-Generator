@@ -1,11 +1,11 @@
 
   
-  [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  # chenghao   
+  # Professional Readme Generator   
   ## Description
   
-  hou
+  This app helps user to automatically generate a professional readme.md file
       
   ## Table of Contents
   
@@ -13,33 +13,33 @@
   - [Usage](#usage)
   - [License](#license)
   - [Contributing](#contributing)
-  - [Tests](#Tests)
+  - [Tests](#tests)
   - [Questions](#questions)
   
       
   ## Installation 
-      
-  sieni
+
+  ```md    
+  npm i inquirer@8.2.4
+  ```
+  
       
   ## Usage
       
-  sjiojio
+  Run 'node index.js' and provide the answers for the prompt questions. A professional README will be  created.
        
   ## License
   
-  BSD 2-Clause "Simplified" License
+  MIT License
       
   ## Contributing
       
-  lkj 
+  Chenghao
       
   ## Tests
   ```md    
-  fjijeiiejw
+  node index.js
   ```
   ## Questions
-  
-  ijoaf
-  
-  jioajfoi
-
+  If there is any other questions please contact
+  Chenghao : houchenghao@hotmail.com

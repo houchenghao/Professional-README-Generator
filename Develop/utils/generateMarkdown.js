@@ -92,13 +92,16 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [License](#license)
   - [Contributing](#contributing)
-  - [Tests](#Tests)
+  - [Tests](#tests)
   - [Questions](#questions)
   
       
   ## Installation 
-      
+
+  \`\`\`md    
   ${data.installationInstructions}
+  \`\`\`
+  
       
   ## Usage
       
@@ -117,11 +120,8 @@ function generateMarkdown(data) {
   ${data.testInstructions}
   \`\`\`
   ## Questions
-  
-  ${data.username}
-  
-  ${data.email}
-
+  If there is any other questions please contact
+  ${data.username} : ${data.email}
 `;
 }
 
